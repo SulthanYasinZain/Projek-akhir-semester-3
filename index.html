@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple To-Do List</title>
+    <script type="module" src="/script.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen p-4">
+    <div
+      id="loginForm"
+      class="max-w-sm mx-auto bg-white p-6 rounded-md shadow-md"
+    >
+      <h2 class="text-xl font-semibold mb-4">Login</h2>
+      <input
+        id="email"
+        type="email"
+        placeholder="Email"
+        class="w-full p-2 border border-gray-300 rounded mb-2"
+      />
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        class="w-full p-2 border border-gray-300 rounded mb-2"
+      />
+      <button
+        id="loginButton"
+        class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+      >
+        Login
+      </button>
+      <button
+        id="signupButton"
+        class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 mt-2"
+      >
+        Sign Up
+      </button>
+    </div>
+
+    <div
+      id="todoForm"
+      class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md"
+      style="display: none"
+    >
+      <h2 class="text-xl font-semibold mb-4">To-Do List</h2>
+      <div class="flex mb-4">
+        <input
+          id="todoInput"
+          type="text"
+          placeholder="Add a new task"
+          class="flex-1 p-2 border border-gray-300 rounded mr-2"
+        />
+        <button
+          id="addTodoButton"
+          class="bg-green-500 text-white p-2 rounded hover:bg-green-600"
+        >
+          Add
+        </button>
+      </div>
+      <ul id="todoList" class="list-disc pl-5"></ul>
+    </div>
+  </body>
+</html>
