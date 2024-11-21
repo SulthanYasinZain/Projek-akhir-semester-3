@@ -68,14 +68,23 @@ async function loadTodos() {
     querySnapshot.forEach((doc) => {
       const listItem = document.createElement("li");
       listItem.textContent = doc.data().text;
+      listItem.classList.add(
+        "flex",
+        "justify-between",
+        "items-center",
+        "list-decoration-none"
+      );
 
       const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete";
-      deleteButton.classList.add("ml-2", "text-red-500", "hover:underline");
       deleteButton.onclick = () => handleDeleteTodo(doc.id, listItem);
+
+      const deletelogo = document.createElement("img");
+      deletelogo.src =
+        "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXRyYXNoLTIiPjxwYXRoIGQ9Ik0zIDZoMTgiLz48cGF0aCBkPSJNMTkgNnYxNGMwIDEtMSAyLTIgMkg3Yy0xIDAtMi0xLTItMlY2Ii8+PHBhdGggZD0iTTggNlY0YzAtMSAxLTIgMi0yaDRjMSAwIDIgMSAyIDJ2MiIvPjxsaW5lIHgxPSIxMCIgeDI9IjEwIiB5MT0iMTEiIHkyPSIxNyIvPjxsaW5lIHgxPSIxNCIgeDI9IjE0IiB5MT0iMTEiIHkyPSIxNyIvPjwvc3ZnPg==";
 
       listItem.appendChild(deleteButton);
       todoList.appendChild(listItem);
+      deleteButton.appendChild(deletelogo);
     });
   } catch (error) {
     console.error("Error loading todos:", error.message);
